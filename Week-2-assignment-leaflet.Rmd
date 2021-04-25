@@ -1,0 +1,33 @@
+---
+title: "Week-2-Assignment-Leaflet"
+author: "Sovann Prey"
+date: "4/25/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyr)
+library(leaflet)
+
+covid_data <- read.csv("./Data/Coronavirus_COVID-19_Cases.csv")
+df <- data.frame(name = covid_data$Country_Region, 
+                 death = covid_data$Deaths, 
+                 lat = covid_data$Lat,
+                 lng = covid_data$Long_)
+
+df <- df %>%  drop_na()
+
+df %>% 
+  leaflet() %>%
+  addTiles() %>%
+  addCircleMarkers(lat = df$lat, 
+                   lng = df$lng, 
+                   clusterOptions = markerClusterOptions(),
+                   popup = df$death)
+
+```
+
