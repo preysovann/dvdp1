@@ -1,0 +1,25 @@
+---
+title: "Week-3-Assignment-Plotly"
+author: "Sovann Prey"
+date: "4/26/2021"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## mtcars (mpg vs. hp by cyl)
+
+```{r, warning=FALSE, message=FALSE}
+library(devtools)
+library(plotly)
+
+#load the mtcars datasets
+data("mtcars")
+
+#plot the data using Plotly
+plot_ly(data=mtcars, x=~hp, y=~mpg, color=~factor(cyl), size=~wt, type="scatter", mode="markers")
+
+```
+
