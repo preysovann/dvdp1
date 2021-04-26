@@ -20,7 +20,9 @@ df <- data.frame(name = covid_data$Country_Region,
                  lng = covid_data$Long_)
 
 df <- df %>%  drop_na()
-
+```
+## Number of Deaths from Covid-19
+```{r}
 df %>% 
   leaflet() %>%
   addTiles() %>%
