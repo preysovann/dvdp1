@@ -27,7 +27,7 @@ df %>%
   addCircleMarkers(lat = df$lat, 
                    lng = df$lng, 
                    clusterOptions = markerClusterOptions(),
-                   popup = df$death)
+                   popup = paste("Death: ", df$death))
 
 ```
 
